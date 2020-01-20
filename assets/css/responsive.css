@@ -168,6 +168,12 @@
     }
 }
 
+@media screen and (max-width: 992px) {
+	.people-thumb-img {
+		margin:0 auto;
+	}
+}
+
 @media screen and (max-width: 768px) {
 	.dropdown-menu {
 		position: inherit;
@@ -290,6 +296,7 @@
 	}
 	.people-thumb-img {
 		text-align: center;
+		margin:0 auto;
 	}
 	.profile {
 		margin-bottom: 20px;
