@@ -364,6 +364,9 @@
 	.timing .time_circles > div {
 		display: block;
 	}
+	#background-carousel .carousel-inner .item {
+		background-position: center;
+	}
 }
 @media screen and (max-width: 620px) {
 	.timing .time_circles > div > h4 {
