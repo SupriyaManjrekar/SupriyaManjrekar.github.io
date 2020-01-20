@@ -339,11 +339,12 @@ ul, li {
 	margin-bottom: 0;
 }
 .nav-logo {
-	font-family: 'Roboto', sans-serif;
+	font-family: "Lobster",cursive;
 	font-weight: 700;
-	font-size: 34px;
+	font-size: 25px;
+	color: white;
 	margin: 0;
-	padding: 0;
+	padding: 10px 0 0 0;
 }
 .nav-block .navbar-nav > li > a {
 	padding-top: 0px;
@@ -930,7 +931,7 @@ ul, li {
 .profile h5 small{
     text-transform: capitalize;
 }
-.people .row:nth-child(2) .left-content, .people .row:nth-child(2) .right-content {
+.people .row:nth-child(2) .left-content, .people .row .right-content {
 	margin-bottom: 50px;
 }
 .left-content .profile {
@@ -1795,7 +1796,6 @@ footer .color-overlay {
 .footer-logo {
 	display: inline-block;
 	background: url("../../images/icon/footer_logo.png") no-repeat center center;
-	width: 133px;
 	height: 128px;
 	padding: 48px 0px;
 	margin-bottom: 80px;
