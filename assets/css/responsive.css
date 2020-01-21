@@ -51,7 +51,7 @@
   	}
   	.thumb-img h5 {
   		font-size: 24px;
-        margin: 24px 0px;
+        margin: 75px 0 20px 0;
 }
   	.thumb-img h5 small {
   		font-size: 18px;
@@ -282,7 +282,7 @@
 	}
 	.thumb-img h5 {
 		font-size: 18px;
-		margin: 22px 0;
+		margin: 70px 0 20px 0;
 		line-height: 12px;
 	}
 	.thumb-img p {
