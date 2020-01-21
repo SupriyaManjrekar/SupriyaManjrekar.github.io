@@ -214,31 +214,89 @@ $(document).ready(function () {
     wow.init();
 
 
-    // --------------RSVP Form Ajax request-----------------------
-
+    // --------------Wish Form Ajax request-----------------------
+	
+	
+	var wishesData = [];
+	var pre_post = 0;
+	var curr_post = 0;
+	var next_post = 0;
+	
+	const database = firebase.database();
+	const commentRef = firebase.database().ref('comments');
+	
     $('.contact_form').on('submit', function (event) {
         event.preventDefault();
 
         // $this = $(this);
 
         var data = {
-            name: $('#name').val(),
-            numberOfGuest: $('#numberOfGuest').val(),
-            eventAttending: $('#eventAttending').val(),
-            // email: $('#contact_email').val(),
-            // subject: $('#subject').val(),
-            message: $('#message').val()
-        };
-
-        $.ajax({
-            type: "POST",
-            url: "email.php",
-            data: data,
-            success: function (msg) {
-                $('.contact-success').fadeIn().delay(3000).fadeOut();
-            }
-        });
+				name : $('#w_name').val(),
+				email : $('#w_email').val(),
+				relation : $('#w_relation').val(),
+				message : $('#w_message').val(),
+				timestamp: Date.now()
+			};
+			
+		let newComment = commentRef.push();
+		
+		try{
+			newComment.set(data);
+			$(this).fadeOut();
+			$(".contact-error").fadeOut();
+			$(".contact-success").fadeIn();
+		} catch(e) {
+			$(".contact-error").fadeIn();
+		}
+		
+		
     });
+	
+	commentRef.limitToFirst(100).on('value', function(snap) { 
+		if(snap != null){
+			wishesData = Object.values(snap.val());
+			displayPost();
+		}			
+		console.log(wishesData);
+	});
+	
+
+	
+	
+	$('#next-post').on("click", function() {
+						pre_post = curr_post;
+						curr_post = next_post;
+						if (next_post == wishesData.length - 1)
+							next_post = 0;
+						else
+							next_post++;
+						displayPost();
+					});
+	$('#prev-post').on("click", function() {
+		next_post = curr_post;
+		curr_post = pre_post;
+		if (pre_post == 0)
+			pre_post = wishesData.length - 1;
+		else
+			pre_post--;
+		displayPost();
+	});
+	function displayPost() {
+		$('#prev-post-title').text(
+				"Wishes from " + wishesData[pre_post].name);
+		$('#next-post-title').text(
+				"Wishes from " + wishesData[next_post].name);
+		$('#wellwisher-message-post').html(
+				'<h3>' + wishesData[curr_post].name + '</h3>'
+						+ '<div class="description">'
+						+ '<blockquote><q>'
+						+ wishesData[curr_post].message
+						+ '</q></blockquote>' + '</div>'
+						+ '<div class="wellwisher-postmata">'
+						+ '<span>Posted By: <a>'
+						+ wishesData[curr_post].relation
+						+ '</a></span>' + '</div>').fadeIn();
+	}
 
     /* =================================
     ===  IE10 ON WINDOWS 8 FIX      ====
