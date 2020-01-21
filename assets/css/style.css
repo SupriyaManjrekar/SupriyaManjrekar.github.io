@@ -619,7 +619,7 @@ ul, li {
 }
 .thumb-img h5 small {
 	color: #fff;
-	margin-left: 115px;
+	margin: 0 auto;
 	line-height: 33px;
 	letter-spacing: .1em;
 	font-size: 24px;
