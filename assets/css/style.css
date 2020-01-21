@@ -1032,50 +1032,171 @@ ul, li {
 ------------------------------------------------------------------------
 */
 
-.gift {
-	padding: 100px 0;
+.wishes {
+	padding: 100px 0 150px;
 }
-.gift-block {
-	position: relative;
-    padding: 65px 20px;
-    text-align: center;    
-	border: 3px solid #D3D3D3;
-    background: rgba(219,219,219,.9);
-    z-index: 1;
-    -webkit-transition: .3s ease-in;
-       -moz-transition: .3s ease-in;
-        -ms-transition: .3s ease-in;
-         -o-transition: .3s ease-in;
-            transition: .3s ease-in;
+
+.wish{
+    overflow:hidden;
+    clear:both;
+    padding:0 0 30px;
 }
-.gift-block:hover, .gift-block.active {
-	border: 3px solid #d44640;
+.wish-post{
+    overflow:hidden;
+    padding:0 0 30px;
+    border-bottom:1px solid #d9d9d9;
 }
-.gift-block:hover .gift-overlay, .gift-block.active .gift-overlay {
-	z-index: -1;
-	background: #fff; 
+.post-nav{
+    overflow:hidden;
+    padding:0 0 30px;
 }
-.gift-block a {	
-    display: block;
-    text-align: center;
-    vertical-align: middle;
+.prev-post{
+    float:left;
+    width:50%;
 }
-.gift-block img {
-    display: inline-block;
+.next-post{
+    float:right;
+    width:50%;
 }
-.gift-overlay {
+#prev-post,
+#next-post{cursor:pointer;}
+.prev-post,
+.next-post{position:relative;}
+.prev-post a{ float:left;}
+.next-post a{ float:right;}
+.prev-post a,
+.next-post a{
+    position:relative;
+    z-index:1;
+}
+.next-post a em,
+.prev-post a em,
+.next-post a i,
+.prev-post a i{
+    display:inline-block;
+    vertical-align:top;
+    font-style:normal;
+}
+.next-post a em,
+.prev-post a em{
+    font-weight:normal;
+    line-height:19px;
+}
+.next-post a i,
+.prev-post a i{
+    height:34px;
+    font-size:50px;
+    line-height:34px;
+}
+.next-post a i{ margin-left:20px;}
+.prev-post a i{ margin-right:20px;}
+.prev-post-title,
+.next-post-title{
+    position:absolute;
+    bottom:0;
+    display:block;
+    font-size:14px;
+    line-height:17px;
+    z-index:3;
+    color:#999;
+    width:220px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+}
+.prev-post-title{
+    margin:0 0 0 40px;
+    text-align:left;
+    left:0;
+}
+.next-post-title{
+    margin:0 40px 0 0;
+    text-align:right;
+    right:0;
+}
+.wellwisher-img figure{
+    overflow:hidden;
+    margin:0;
+    border:1px solid #c8c9c9;
+}
+.wellwisher-img figure img{
+    display:block;
+    width:100%;
+    height:auto;
+}
+.wellwisher-message {
+	color:#414141;
+	#font-family:'Open Sans', Arial, Helvetica, sans-serif;
+}
+.wellwisher-message h3{
+    margin:0;
+    font-size:25px;
+    line-height:21px;
+    font-weight:normal;
+    #font-family:'Open Sans', Arial, Helvetica, sans-serif;
+}
+.wellwisher-message .description{
+    font-size:16px;
+    line-height:24px;
+    padding:39px 0;
+    position:relative;
+}
+.wellwisher-message .description:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    width:0;
+    height:0;
+    display:block;
+    background:none;
+}
+
+.wellwisher-message .description blockquote:after {
+	content: "";
 	position: absolute;
-	left: 0px;
-	right: 0px;
-	top: 0px;
-	bottom: 0px;
-	background: rgba(219,219,219,.9);
-	-webkit-transition: .3s ease-in;
-       -moz-transition: .3s ease-in;
-        -ms-transition: .3s ease-in;
-         -o-transition: .3s ease-in;
-            transition: .3s ease-in;
+	bottom: -28px;
+	right: 20px;
+	background: url(../../images/icon/quote_right.png) no-repeat;
+	width: 50px;
+	height: 40px;
 }
+.wellwisher-message .description blockquote:before {
+    content: "";
+	position: absolute;	
+    top: -28px;
+    left: 30px;
+    background: url(../../images/icon/quote_left.png) no-repeat;
+    width: 50px;
+    height: 40px;
+}
+
+.wellwisher-message .description  blockquote{
+	color:#414141;
+	border: none;
+    font-family:'Open Sans', Arial, Helvetica, sans-serif;
+	font-size:16px;
+    line-height:24px;
+    padding:39px 0;
+    position:relative;
+	padding: 0 60px 0 60px;
+    margin: 0px 0px 0px 0px;
+    border: 0;
+}
+.wellwisher-message .description q{
+quotes:none;
+}
+.wellwisher-postmata{
+    overflow:hidden;
+    font-size:14px;
+    line-height:17px;
+}
+.wellwisher-postmata span{
+    float:left;
+    padding:0 20px 0 0;
+}
+.wellwisher-postmata span a{ color:#999;}
+
 
 /*
 ========================================================================
@@ -1439,9 +1560,10 @@ input[type="submit"]:focus, input[type="submit"]:active {
 	border: 1px solid #64AB89;
 	border-radius: 2px;
 	padding: 5px;
-	color: #64AB89;
+	color: red;
 	text-align: center;
 	display: none;
+	font-family: 'Lobster';
 }
 .contact-error {
 	background: transparent;
